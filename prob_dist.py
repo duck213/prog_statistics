@@ -8,7 +8,7 @@ from scipy import stats
 n, p = 10, 0.3
 stat_bin = sp.stats.binom(n,p)
 
-fig = plt.figure()
+fig = plt.figure(figsize=(16,8))
 ax1 = fig.add_subplot(2,4,1)
 ax2 = fig.add_subplot(2,4,2)
 ax3 = fig.add_subplot(2,4,3)
@@ -58,9 +58,9 @@ print('Hypergeometric Average:',hyp_mean)
 stat_uni = sp.stats.uniform()
 x_axis = np.linspace(0,1,100)
 
-# Probability Mass Function(pmf)
+# Probability Distribution Function(pdf)
 ax5.bar(x_axis, stat_uni.pdf(x_axis))
-ax5.title.set_text("Uniform Distribution pmf")
+ax5.title.set_text("Uniform Distribution pdf")
 
 # Cumulative Distribution Function(cdf)
 ax6.bar(x_axis, stat_uni.cdf(x_axis))
@@ -73,6 +73,23 @@ uni_mean = np.mean(random_uni)
 print('Uniform Average:',uni_mean)
 
 
+# 4. Normal Distribution
+stat_nor = sp.stats.norm()
+x_axis = np.linspace(-3,3,100)
+
+# Probability Distribution Function(pdf)
+ax7.bar(x_axis, stat_nor.pdf(x_axis))
+ax7.title.set_text("Normal Distribution pdf")
+
+# Cumulative Distribution Function(cdf)
+ax8.bar(x_axis, stat_nor.cdf(x_axis))
+ax8.title.set_text("Normal Distribution cdf")
+
+# random seed & sample extraction
+np.random.seed(seed=0)
+random_nor = np.random.normal(0,1,100)
+nor_mean = np.mean(random_nor)
+print('Normal Average:',nor_mean)
 
 
 plt.tight_layout()
