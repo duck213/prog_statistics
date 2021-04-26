@@ -35,8 +35,10 @@ name_list = stat.iloc[:,[1]].drop_duplicates().Name.to_list()
 # percentage
 freq_percent = [int(round(i, 2)*100) for i in stat_relfreq]
 fig = plt.figure()
+
 ax1 = fig.add_subplot(2,1,1)
 ax2 = fig.add_subplot(2,1,2)
+
 
 ax1.pie(freq_percent, labels=name_list)
 ax1.axis('equal')
@@ -44,5 +46,18 @@ ax1.axis('equal')
 my_cmap = cm.get_cmap('jet')
 my_norm = Normalize(vmin=0, vmax=60)
 ax2.bar(name_list, freq_percent, color=my_cmap(my_norm(freq_percent)))
-plt.show()
 
+
+fig2 = plt.figure()
+ax3 = fig2.add_subplot(2,1,1)
+ax4 = fig2.add_subplot(2,1,2)
+stat_df = pd.DataFrame({'attend' :[22,7,19,3,10,8,19,7,15,9,35,5],
+                          'who' : [ 'Dmitriy', 'Anton', 'Andrey', 'Sergey',
+                                    'Ivan', 'Dmitriy','Dmitriy','Dmitriy',
+                                    'Andrey','Sergey', 'Ivan','Sergey'],
+                          'stems' : [2,0,1,0,1,0,1,0,1,0,3,0]})
+
+
+ax3.hist(stat_df['attend'])
+ax4.stem(stat_df['stems'], stat_df['attend'])
+plt.show()
