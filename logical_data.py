@@ -1,16 +1,15 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+
 from scipy import stats
 from statistics import variance, stdev
-
-
 
 # 1. Measure of central tendency
 # a example of caffeine to calculate many kinds of statistics skills
 
 coffee = np.array([202,177,121,148,89,121,137,158])
-'''
+
 # average
 cf_mean = np.mean(coffee)
 print("Mean :", round(cf_mean,2))
@@ -21,7 +20,7 @@ print("Median :", round(cf_median,2))
 
 # Mode
 cf_mode = stats.mode(coffee)
-print("Mode :", cf_mode)
+print("Mode :", cf_mode[0][0])
 
 # Variance
 cf_var = variance(coffee)
@@ -32,7 +31,7 @@ cf_std = stdev(coffee)
 print("Standard Deviation :", round(cf_std,2))
 
 # Range
-cf_range = np.max(coffee, axis=0) - np.min(coffee, axis=0)
+cf_range = np.max(coffee,axis=0)-np.min(coffee,axis=0)
 print("Range :", cf_range)
 
 # Percentile
@@ -50,7 +49,7 @@ print("Inter quartile range:",cf_IQR)
 cf_cv = stdev(coffee) / np.mean(coffee)
 cf_cv = round(cf_cv,2)
 print("CV:", cf_cv)
-'''
+
 
 # 2. Numerical data
 # 2-1 With a example of a cup of coffee
@@ -67,15 +66,16 @@ count_cup = group_cup.agg(['count'])
 print(count_cup)
 
 # 2-2 box plot
-plt.subplots()
 plt.boxplot(coffee)
-plt.show()
+
 
 # 2-3 crosstab
 mart = pd.read_csv("mart.csv")
+
 # Preferred mart in region
 region_crosstab = pd.crosstab(mart['region'],mart['mart'])
 print(region_crosstab)
+
 # Preferred mart in region with family members
 famnum_crosstab = pd.crosstab(mart['family_num'],mart['mart'])
 print(famnum_crosstab)
@@ -95,7 +95,6 @@ ax3.scatter(body['height'], body['leglen'])
 ax4.scatter(body['height'], body['hair'])
 
 
-
 # 2-5 covariance
 cov_body = body.cov()
 print(cov_body)
@@ -103,6 +102,5 @@ print(cov_body)
 # 2-6 Correlation Coefficient
 corr_body = body.corr()
 print(corr_body)
-
 
 plt.show()
