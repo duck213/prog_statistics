@@ -8,7 +8,6 @@ def fac(n):
 
 print("factorial 4 is",fac(4))
 
-
 # 2. 6명 수강생 중 2명에게 순위별 상품을 주는 경우의 수
 gift = ["가","나","다","라","마","바"]
 
@@ -17,18 +16,15 @@ rank_per = list(permutations(gift,2))
 rank_per_num = len(rank_per)
 print("gift permutation:",rank_per_num)
 
-
 # 2-2. combination
 rank_com = list(combinations(gift,2))
 rank_com_num = len(rank_com)
 print("gift combinations:",rank_com_num)
 
-
 # 2-3. permutations
 re_per = list(product(gift, repeat=3))
 re_per_num = len(re_per)
 print("gift permutations:",re_per_num)
-
 
 # 2-4. combinations with replacement
 re_com = list(combinations_with_replacement(gift, 3))
@@ -56,7 +52,6 @@ for i in range(30):
     if Q2 == "A" or Q1 == "A":
         answer_Q1orQ2 += 1
 
-
 print( "P(B|A):", answer_Q1andQ2/answer_Q2)
 print( "P(B|O):", answer_Q1andQ2/answer_Q1orQ2)
 
@@ -71,7 +66,4 @@ print("Die6_dict:",Die6_dict)
 condi = given(Die6, Die6 > 3)
 condi_dict = density(condi).dict
 print("condi_dict",condi_dict)
-
-
-
 
