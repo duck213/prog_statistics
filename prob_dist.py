@@ -3,11 +3,6 @@ import matplotlib.pyplot as plt
 import scipy as sp
 from scipy import stats
 
-
-# 1. Binomial Distribution
-n, p = 10, 0.3
-stat_bin = sp.stats.binom(n,p)
-
 fig = plt.figure(figsize=(16,8))
 ax1 = fig.add_subplot(2,4,1)
 ax2 = fig.add_subplot(2,4,2)
@@ -17,6 +12,11 @@ ax5 = fig.add_subplot(2,4,5)
 ax6 = fig.add_subplot(2,4,6)
 ax7 = fig.add_subplot(2,4,7)
 ax8 = fig.add_subplot(2,4,8)
+
+
+# 1. Binomial Distribution
+n, p = 10, 0.3
+stat_bin = sp.stats.binom(n,p)
 x_axis = np.arange(n+1)
 
 # Probability Mass Function(pmf)
@@ -54,7 +54,6 @@ print('Hypergeometric Average:',hyp_mean)
 
 
 # 3. Uniform Distribution
-[M,n,N] = [30,5,10]
 stat_uni = sp.stats.uniform()
 x_axis = np.linspace(0,1,100)
 
