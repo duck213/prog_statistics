@@ -18,7 +18,6 @@ np.random.seed(seed=1)
 random_nor = np.random.normal(100, 10, 10) # mu, sigma, sample
 nor_mean = np.mean(random_nor)
 
-
 # The definition of Population hypothesis test function
 def ztest(stat,mu,sigma):
     z = (stat.mean() - mu) / (sigma / np.sqrt(len(stat)))
